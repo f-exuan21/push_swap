@@ -26,4 +26,6 @@ void	sa(int *arr);
 void	ra(int *arr, int cnt);
 void	sort_simply(int *arr, int *sorted, int size);
 
+int		check_arr(int *arr, int cnt);
+
 #endif

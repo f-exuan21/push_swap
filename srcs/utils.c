@@ -2,21 +2,34 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int	ft_chkmax(unsigned long long n, int minus)
+int	ft_strlen(char *str)
 {
-	if (n > LLONG_MAX && minus == 0)
-		return (-1);
-	else if (n - 1 > (LLONG_MAX) && minus == 1)
-		return (0);
-	else
-		return (1);
+	int	len;
+
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
+}
+
+void	error(char *str)
+{
+	write(1, str, ft_strlen(str));
+	exit(-1);
+}
+
+void	ft_chkmax(unsigned long long n, int minus)
+{
+	if (n > INT_MAX && minus == 0)
+		error("[ERROR] The number exceeded the maximum value.");
+	else if (n - 1 > INT_MAX && minus == 1)
+		error("[ERROR] The number exceeded the minimum value.");
 }
 
 int	ft_atoi(const char *str)
 {
 	long long		rst;
 	int				minus;
-	int				chk;
 
 	rst = 0;
 	minus = 0;
@@ -32,29 +45,11 @@ int	ft_atoi(const char *str)
 		rst = rst * 10 + (*str - '0');
 		str++;
 	}
-	chk = ft_chkmax(rst, minus);
-	if (chk == -1 || chk == 0)
-		return (chk);
+	ft_chkmax(rst, minus);
 	if (minus)
 		return (-rst);
 	else
 		return (rst);
-}
-
-int	ft_strlen(char *str)
-{
-	int	len;
-
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
-
-void	error(char *str)
-{
-	write(1, str, ft_strlen(str));
-	exit(-1);
 }
 
 int	is_digit(char *str)

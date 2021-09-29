@@ -1,4 +1,4 @@
-#include "includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 /*
 ** arr이 순차적으로 정렬되어 있는지 수시로 확인
@@ -64,8 +64,7 @@ void	sort_arr(int *arr_a, int *arr_b, int cnt_a)
 	int	*tmp;
 
 	cnt_b = 0;
-	tmp = sort(arr_a, cnt_a);
-	sort_simply(arr_a, tmp, cnt_a);
+	sort_simply(arr_a, tmp = sort(arr_a, cnt_a), cnt_a);
 	free(tmp);
 	while (check_arr(arr_a, cnt_a))
 	{
@@ -77,10 +76,12 @@ void	sort_arr(int *arr_a, int *arr_b, int cnt_a)
 		else if (min == arr_a[cnt_a - 1])
 			rra(arr_a, cnt_a);
 		else
+		{
 			if (compare_numbers(arr_a, cnt_a))
 				ra(arr_a, cnt_a);
 			else
 				sa(arr_a);
+		}
 	}
 	pa_all(arr_a, arr_b, &cnt_a, &cnt_b);
 }

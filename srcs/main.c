@@ -1,4 +1,4 @@
-#include "includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 int	main(int argc, char *argv[])
 {
@@ -14,11 +14,11 @@ int	main(int argc, char *argv[])
 	while (idx < argc - 1)
 	{
 		if (!is_digit(argv[idx + 1]))
-			return (-1);
+			exit(-1);
 		arr_a[idx] = ft_atoi(argv[idx + 1]);
 		idx++;
 	}
-	if (argc >= 3 && argc <= 6)
+	if (argc >= 3 && argc <= 11)
 		sort_arr(arr_a, arr_b, argc - 1);
 	else
 		heavy_sort_arr(arr_a, arr_b, argc - 1);

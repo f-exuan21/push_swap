@@ -12,6 +12,10 @@ void	copy_arr(int *dst, int *arr, int size)
 	}
 }
 
+/*
+** 삽입정렬
+*/
+
 int	*sort(int *arr, int size)
 {
 	int		i;

@@ -1,6 +1,6 @@
-#include "includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-int	get_max_bits(int *arr, int size)
+int	get_max_bits(int size)
 {
 	int	idx;
 	int	max_num;
@@ -21,7 +21,7 @@ void	sort_using_bits(int *arr_a, int *arr_b, int cnt_a, int cnt_b)
 	int	size;
 
 	i = 0;
-	while (i < get_max_bits(arr_a, cnt_a))
+	while (i < get_max_bits(cnt_a))
 	{
 		j = 0;
 		size = cnt_a;
@@ -47,6 +47,8 @@ void	heavy_sort_arr(int *arr_a, int *arr_b, int cnt_a)
 	cnt_b = 0;
 	tmp = sort(arr_a, cnt_a);
 	sort_simply(arr_a, tmp, cnt_a);
+	if (!check_arr(arr_a, cnt_a))
+		exit(1);
 	free(tmp);
 	sort_using_bits(arr_a, arr_b, cnt_a, cnt_b);
 }
