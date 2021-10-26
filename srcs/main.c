@@ -1,4 +1,5 @@
 #include "../includes/push_swap.h"
+#include <stdio.h>
 
 int	main(int argc, char *argv[])
 {
@@ -6,15 +7,14 @@ int	main(int argc, char *argv[])
 	int	*arr_b;
 	int	idx;
 
-	if (argc == 1)
-		exit(0);
+	argc = check_arg(argc, argv);
 	idx = 0;
 	arr_a = malloc(sizeof(int) * (argc - 1));
 	arr_b = malloc(sizeof(int) * (argc - 1));
 	while (idx < argc - 1)
 	{
 		if (!is_digit(argv[idx + 1]))
-			exit(-1);
+			error("[ERROR] Invalid Parameters.\n");
 		arr_a[idx] = ft_atoi(argv[idx + 1]);
 		idx++;
 	}

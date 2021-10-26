@@ -62,7 +62,7 @@ int	is_digit(char *str)
 	while (str[idx])
 	{
 		if ('0' > str[idx] || '9' < str[idx])
-			error("[ERROR] Invalid Parameters.\n");
+			return (0);
 		idx++;
 	}
 	return (1);

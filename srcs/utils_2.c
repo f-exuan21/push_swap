@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include "../includes/push_swap.h"
 
 void	copy_arr(int *dst, int *arr, int size)
 {
@@ -71,7 +72,6 @@ int	check_dup_arr(int *arr, int arr_len)
 	int	tmp;
 	int	n;
 	int	m;
-	int	*tmp_arr;
 
 	n = 0;
 	tmp = arr[0];
@@ -87,4 +87,25 @@ int	check_dup_arr(int *arr, int arr_len)
 		n++;
 	}
 	return (0);
+}
+
+int	check_arg(int argc, char *argv[])
+{
+	char	**tmp;
+	int		i;
+
+	if (argc == 1)
+		exit(0);
+	else if (argc == 2)
+	{
+		i = 0;
+		tmp = ft_split(argv[1], ' ');
+		while (*(tmp + i) != NULL)
+		{
+			*(argv + (i + 1)) = tmp[i];
+			i++;
+		}
+		argc = i + 1;
+	}
+	return (argc);
 }

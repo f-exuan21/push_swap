@@ -13,7 +13,7 @@ int		is_digit(char *str);
 void	error(char *str);
 int		*sort(int *arr, int size);
 int		check_dup_arr(int *arr, int arr_len);
-
+int		check_arg(int argc, char *argv[]);
 /*
 ** main
 */
@@ -28,5 +28,5 @@ void	ra(int *arr, int cnt);
 void	sort_simply(int *arr, int *sorted, int size);
 
 int		check_arr(int *arr, int cnt);
-
+char	**ft_split(char const *s, char c);
 #endif
