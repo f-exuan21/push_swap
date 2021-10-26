@@ -65,3 +65,26 @@ void	sort_simply(int *arr, int *sorted, int size)
 		i++;
 	}
 }
+
+int	check_dup_arr(int *arr, int arr_len)
+{
+	int	tmp;
+	int	n;
+	int	m;
+	int	*tmp_arr;
+
+	n = 0;
+	tmp = arr[0];
+	while (n < arr_len - 1)
+	{
+		m = n + 1;
+		while (m < arr_len)
+		{
+			if (arr[m] == tmp)
+				return (1);
+			m++;
+		}
+		n++;
+	}
+	return (0);
+}

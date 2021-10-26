@@ -36,7 +36,6 @@ void	sort_using_bits(int *arr_a, int *arr_b, int cnt_a, int cnt_b)
 		pa_all(arr_a, arr_b, &cnt_a, &cnt_b);
 		i++;
 	}
-	pa_all(arr_a, arr_b, &cnt_a, &cnt_b);
 }
 
 void	heavy_sort_arr(int *arr_a, int *arr_b, int cnt_a)
