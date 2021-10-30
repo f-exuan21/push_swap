@@ -7,7 +7,7 @@ SRC = ${wildcard ${SRCS_DIR}/*.c}
 
 
 $(NAME) :
-	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+	$(CC) $(CFLAGS) $(SRC) -L./lib -lft -o $(NAME)
 
 all : $(NAME)
 
