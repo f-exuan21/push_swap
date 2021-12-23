@@ -7,19 +7,18 @@ int	main(int argc, char *argv[])
 	int	*arr_b;
 	int	idx;
 
-	argc = check_arg(argc, argv);
+	argv = argv + 1;
+	argv = check_arg(&argc, argv);
 	idx = 0;
 	arr_a = malloc(sizeof(int) * (argc - 1));
 	arr_b = malloc(sizeof(int) * (argc - 1));
 	while (idx < argc - 1)
 	{
-		if (!is_digit(argv[idx + 1]))
+		if (!is_digit(argv[idx]))
 			error("[ERROR] Invalid Parameters.\n");
-		arr_a[idx] = ft_atoi(argv[idx + 1]);
+		arr_a[idx] = check_dup_arr(arr_a, idx, ft_atoi(argv[idx]));
 		idx++;
 	}
-	if (check_dup_arr(arr_a, argc - 1))
-		error("[ERROR] Duplicated Parameters.");
 	if (argc >= 3 && argc <= 6)
 		sort_arr(arr_a, arr_b, argc - 1);
 	else

@@ -67,45 +67,37 @@ void	sort_simply(int *arr, int *sorted, int size)
 	}
 }
 
-int	check_dup_arr(int *arr, int arr_len)
+int	check_dup_arr(int *arr, int idx, int find)
 {
-	int	tmp;
-	int	n;
-	int	m;
+	int		i;
 
-	n = 0;
-	tmp = arr[0];
-	while (n < arr_len - 1)
+	i = 0;
+	while (i < idx)
 	{
-		m = n + 1;
-		while (m < arr_len)
+		if (arr[i] == find)
 		{
-			if (arr[m] == tmp)
-				return (1);
-			m++;
+			error("[ERROR] Duplicated Parameters.");
 		}
-		n++;
+		i++;
 	}
-	return (0);
+	return find;
 }
 
-int	check_arg(int argc, char *argv[])
+char	**check_arg(int *argc, char *argv[])
 {
 	char	**tmp;
 	int		i;
 
-	if (argc == 1)
+	tmp = argv;
+	if (*argc == 1)
 		exit(0);
-	else if (argc == 2)
+	else if (*argc == 2)
 	{
 		i = 0;
-		tmp = ft_split(argv[1], ' ');
+		tmp = ft_split(argv[0], ' ');
 		while (*(tmp + i) != NULL)
-		{
-			*(argv + (i + 1)) = tmp[i];
 			i++;
-		}
-		argc = i + 1;
+		*argc = i + 1;
 	}
-	return (argc);
+	return (tmp);
 }

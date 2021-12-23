@@ -12,8 +12,9 @@ int		ft_atoi(const char *str);
 int		is_digit(char *str);
 void	error(char *str);
 int		*sort(int *arr, int size);
-int		check_dup_arr(int *arr, int arr_len);
-int		check_arg(int argc, char *argv[]);
+int		check_dup_arr(int *arr, int idx, int find);
+char	**check_arg(int *argc, char *argv[]);
+int		ft_strlen(char *str);
 /*
 ** main
 */

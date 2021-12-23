@@ -51,7 +51,7 @@ int	ft_atoi(const char *str)
 	else
 		return (rst);
 }
-
+#include <stdio.h>
 int	is_digit(char *str)
 {
 	int	idx;
